@@ -1,5 +1,4 @@
 .git
 .idea
 __pycache__
-./Backend/Secrets/
-*.env
+./Backend.env
