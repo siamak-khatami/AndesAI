@@ -1,4 +1,4 @@
-const localBackEndPort = "8000"
+const localBackEndPort = "8080"
 const LocalServerBackend = "http://localhost:" + localBackEndPort
 const TestServer = ""
 const ProductionBackendServer = ""
