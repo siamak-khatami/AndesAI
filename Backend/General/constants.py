@@ -1,13 +1,29 @@
 class TableNames:
+    TasksDependencies = "tasks_dependencies"
+    ResourcesTB = "resources"
+    TasksResources = "tasks_resources"
+    TasksTB = "tasks"
+    Projects = "projects"
     UserTourVisibility = "user_tour_visibility"
     UserTours = "user_tours"
-    Authors = "authors"
-    Books = "books"
-    Publishers = "publishers"
     Users = "users"
 
 
 class FieldNames:
+    TaskWaitingTime = "task_waiting_times"
+    ResourceAvailability = "resource_availability"
+    DependencyID = "dependency_id"
+    ResourceDescription = "resource_description"
+    TaskDescription = "task_description"
+    ResourceName = "resource_name"
+    ResourceID = "resource_id"
+    TaskResourceDuration = "task_resource_duration"
+    TaskResourceID = "task_resource_id"
+    TaskName = "task_name"
+    TaskID = "task_id"
+    ProjectID = "project_id"
+    DependentTaskID = "dependent_task_id"
+    InDependentTaskID = "independent_task_id"
     TourName = "tour_name"
     TourID = "tour_id"
     IsEnabled = "is_enabled"
@@ -47,6 +63,7 @@ class OnDelete:
 
 
 class EndPoints:
+    Projects = "/projects"
     ChatLLM = "/chat_llm"
     LLMModels = "/llm_models"
     UserTours = "/user_tours"
