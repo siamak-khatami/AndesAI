@@ -28,3 +28,12 @@ class ClarifyProject(BaseModel):
         """
         from_attributes = True
 
+
+class Schedule(BaseModel):
+    name: str
+    start: datetime
+    finish: datetime
+    waiting_time: int
+    resource_time: int
+    total_duration: int
+

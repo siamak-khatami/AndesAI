@@ -12,3 +12,6 @@ class Project(BaseModel):
 
 class ClarifyProject(BaseModel):
     chat_history: str
+
+class GanttInfo(BaseModel):
+    project_id: int

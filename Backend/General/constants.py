@@ -63,6 +63,7 @@ class OnDelete:
 
 
 class EndPoints:
+    Gantt = "/gantt"
     Projects = "/projects"
     ChatLLM = "/chat_llm"
     LLMModels = "/llm_models"
