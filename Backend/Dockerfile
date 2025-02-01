@@ -1,7 +1,7 @@
 # if we do not specifify any version, it will always pull the latest
 # it is not recommendad to do the latest since features can be chnaged over time
-#FROM python:3.12.2
-FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
+FROM python:3.12.2
+# FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
 # workdir is a directon in the docker container which is assumed your root directory to all your commands
 # you will later copy your code base here as well
 # this folder will be generated if there is no such a folder.
@@ -19,7 +19,7 @@ RUN python -m pip install --upgrade pip
 
 RUN pip install --upgrade pip
 
-RUN pip install -U bitsandbytes  ## The bitsandbytes installed is not sufficient and we need to install its latest version using this line
+# RUN pip install -U bitsandbytes  ## The bitsandbytes installed is not sufficient and we need to install its latest version using this line
 
 RUN pip install -r Requirements.txt
 

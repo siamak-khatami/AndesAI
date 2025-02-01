@@ -2,14 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from Routers.Docker import DockerEndpoints
 from Routers.Users import UserEndpoints
-from Routers.LLMs import LLMEndpoints
+# from Routers.LLMs import LLMEndpoints
 # Initialing fast api object
 
 app = FastAPI(docs_url="/docs")
 origins = ["*"]
 app.include_router(DockerEndpoints.docker_router)
 app.include_router(UserEndpoints.user_router)
-app.include_router(LLMEndpoints.llm_router)
+# app.include_router(LLMEndpoints.llm_router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
