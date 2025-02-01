@@ -1,0 +1,55 @@
+
+services:
+  app: # name for the container
+    # in production, we do not build the container. instead we develop what we have developed and push it to
+    # dockerhub and pull it from there. To pull an image from there.
+#    build: . # dir to the docker file
+    image: DOCKER_HUB_REPO
+    depends_on:
+      - postgres
+    # we do not to sync the repo since it will pull it from docker-hub
+#    volumes:
+#      - ./:/usr/src/app:ro
+    # we may need to run it on our browser port
+    ports:
+      - 80:8000
+    # we do not need to have --reload on the production, so we comment it. and since without --reload, it will be
+    # as same as the dockerfile, we comment this line
+#    command: python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
+    # we do not use env files in the server, instead, we use environment variables. These vars will be useful in
+    # both github secretes and linux production.
+    # You can make different env files in an env repo and mention each for a container
+#    env_file:
+#      - ./.env
+#    environment:
+      - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
+#       we refer to the postgres container, so it will automatically know where is the service
+      - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}  # this refers to the postgres container which has been defined below
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+    # stdin_open: true # This is for containers in which needs input to be open, or replacement to -it flag with tty together
+    tty: true  # -it flag replacement with the stdin code together
+
+
+# we make a postgres container
+  postgres:
+    image: postgres
+    environment:
+    # Postgres demands at least these two parameters
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST_AUTH_METHOD = "trust"  # this is needed to make the trust
+    # Volumes are needed to save the data in the volume, otherwise all data will go away.
+    # so in our container local machine we specify the location for the volumes_from:
+    # this volume is defined by docker documents
+    # we need to make it a GLOBAL VARIABLE so every all containers can have access to them
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+# Volumes usually are needed to be accessed globally by all containers, so we redefine the postgres volume as a global
+# variable again here.
+volumes:
+  # Same name as it has been defined before.
+  postgres-db:

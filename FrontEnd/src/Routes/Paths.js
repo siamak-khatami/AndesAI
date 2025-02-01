@@ -1,0 +1,10 @@
+export const PathDashboard = "/dashboard"
+export const PathIndex = "/index" 
+export const PathLogin= "/login"
+export const PathLogout= "/logout"
+export const PathForgetPass= "/forgot-password"
+export const ResetPassword= "/reset-password"
+export const PathRegister= "/register" 
+export const UserActivation = "/activate_user" 
+
+export const LLM = "/llm"
