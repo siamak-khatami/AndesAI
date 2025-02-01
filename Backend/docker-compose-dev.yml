@@ -14,7 +14,7 @@ services:
       # ro is read-only
       - ./:/usr/src/app:ro  # A bind mount volume for code sync./ is relative to the yml file location.
       # if there is a SQL used for the progress then we do not need.
-      - Models:/usr/src/app/Models:rw # this is to save the models from
+#      - Models:/usr/src/app/Models:rw # this is to save the models from
       # In case we need to specify different folders to different services ./SERVICENAME liek ./backend
       #- NAME:PATH  # this is for named volumes
       # - PATH  # you can also create anonymous volumes here
@@ -29,11 +29,11 @@ services:
     command: python3 -m uvicorn main:app --host 0.0.0.0 --port 8080 --reload
     env_file:
       - ./.env
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [ gpu ]  # Specify GPU support
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - capabilities: [ gpu ]  # Specify GPU support
 #    environment:
       # It is better to use env file
       # to connect the postgres in another container to this container,
@@ -75,4 +75,4 @@ services:
 volumes:
   # Same name as it has been defined before.
   postgres-db:
-  Models:
+#  Models:
