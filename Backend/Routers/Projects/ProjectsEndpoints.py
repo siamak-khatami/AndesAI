@@ -208,7 +208,7 @@ def compute_schedule(tasks_data, dep_mapping):
 
 @user_router.post(EndPoints.Gantt,
                   status_code=status.HTTP_201_OK,
-                  response_model=ResSchem.Schedule,
+                  response_model=List[ResSchem.Schedule],
                   )
 def gantt(gantt_info: ReqSchem.GanttInfo,
           user: userResSchema.UserExistence = Depends(check_user_existence),
