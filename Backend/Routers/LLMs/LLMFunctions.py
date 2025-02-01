@@ -161,10 +161,12 @@ def build_the_chain(model, tokenizer, pdf_text, stopping_criteria, temperature=0
 
     vectorstore = FAISS.from_texts(all_splits,
                                    embeddings)
+
     messages = [
         SystemMessagePromptTemplate.from_template("{context} You are a chatbot answering the questions"),
         HumanMessagePromptTemplate.from_template("{question}")
     ]
+    # Comments
     prompt_template = ChatPromptTemplate.from_messages(messages=messages)
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
@@ -173,6 +175,7 @@ def build_the_chain(model, tokenizer, pdf_text, stopping_criteria, temperature=0
                                                   vectorstore.as_retriever(),
                                                   # memory=memory,
                                                   return_source_documents=False)
+    print("new thing")
     return chain, memory
 
 

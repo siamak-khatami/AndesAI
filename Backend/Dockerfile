@@ -49,4 +49,4 @@ COPY ./ ./
 # we do not want to have --reload in the production code, so, we keep it as a command in the docker-compose file.
 # With no CMD, the base CMD of the image will be executed.
 
-CMD ["python3", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python3", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]

@@ -73,10 +73,10 @@ def chat_llm(chat_info: ReqSchem.ChatLLM,
     # These 2 lines including model and the tokenizer is better to be loaded once outside of the function.
     # The model will be cached in the first run and it will be loaded locally the process is already a heavy process.
     # llm_model = 'NousResearch/Llama-2-7b-chat-hf'
-    model, tokenizer, stop_criteria = load_model(chat_info.llm_model)
-    print("LLM loaded!")
-    llm_chain, memory = build_the_chain(model, tokenizer, "", stop_criteria, 0.1)
-    qa_result, llm_chain, chat_history = QA(llm_chain, chat_info.prompt, chat_info.chat_history)
-    chat_history.append([chat_info.prompt, qa_result])
-    return chat_history
+    # model, tokenizer, stop_criteria = load_model(chat_info.llm_model)
+    # print("LLM loaded!")
+    # llm_chain, memory = build_the_chain(model, tokenizer, "", stop_criteria, 0.1)
+    # qa_result, llm_chain, chat_history = QA(llm_chain, chat_info.prompt, chat_info.chat_history)
+    # chat_history.append([chat_info.prompt, qa_result])
+    # return chat_history
 

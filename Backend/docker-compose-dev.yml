@@ -25,8 +25,8 @@ services:
       # the first one is what you use as client to access the service, for example from postman
       # the second one is what container runs inside itself and docker-compose will lunch it on that port
       # for simplicity we hold both same if nothing special happens
-      - 8000:8000
-    command: python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+      - 8080:8080
+    command: python3 -m uvicorn main:app --host 0.0.0.0 --port 8080 --reload
     env_file:
       - ./.env
     deploy:
